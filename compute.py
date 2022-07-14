@@ -241,11 +241,19 @@ def compute(parameter, partial_compute=False):
     path = parameter.currentPath
 
     filepath_t = path + '/life_time.txt'
-    t_raw = pd.read_fwf(filepath_t, header=1).values
+#    t_raw = pd.read_fwf(filepath_t, header=0).values
+    if pd.__version__ > '0.21.0':
+        t_raw = pd.read_fwf(filepath_t, header=0).values
+    else:
+        t_raw = pd.read_fwf(filepath_t, header=1).values
     t = (t_raw[0, :]).tolist()
     t_std = (t_raw[1, :]).tolist()
     dimension = len(t_raw[0])
-    kc_raw = pd.read_fwf(path + '/k.txt', header=1).values
+#    kc_raw = pd.read_fwf(path + '/k.txt', header=0).values
+    if pd.__version__ > '0.21.0':
+       kc_raw = pd.read_fwf(path + '/k.txt', header=0).values
+    else:
+       kc_raw = pd.read_fwf(path + '/k.txt', header=1).values
     kc = [[float(j) for j in i] for i in kc_raw[0:dimension,0:dimension].tolist()]
     k = k_average(np.array(kc, dtype='float64'))
     t_matrix = []

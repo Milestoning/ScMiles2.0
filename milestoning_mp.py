@@ -198,6 +198,11 @@ def milestoning(parameter, skip_compute, all_iterations=None):
             continue
         elif parameter.max_lifetime is not None: #If we have a max lifetime, we ignore any trajectories over this lifetime. 
                                                  #This basically just allows you to ginore runaway trajectories that may not be representative of a typical trajectory
+# Added by Alfredo to make the max_lifetime input the same units with both namd and gromacs (fs)
+            if parameter.software == 'namd':
+                max_lifetime = max_lifetime/timeFactor 
+            else:
+                max_lifetime = max_lifetime*1
             if float(time[0]) > parameter.max_lifetime:
                 print(time_info + ' has a lifetime of ' + str(time[0]) + ' and was ignored.')
                 continue

@@ -41,7 +41,7 @@ class parameters:
         self.method = 0       # 0 for classic milestoning; 1 for exact milestoning: iteration
         self.maxIteration = 10    # max iteration
         self.network = {}  # network for free trajectories
-        self.milestone_search = 0   # 0 for traverse (Voronoi); 1 for seek (Voronoi); 2 for traverse (Grid); 3 for seek (Grid)
+        self.milestone_search = 1   # 0 for traverse (Voronoi); 1 for seek (Voronoi); 2 for traverse (Grid); 3 for seek (Grid)
         self.pbc = []       # periodic boundary for 1D at the moment
         self.current_iteration_time = {}   # current iteration time
         self.timeFactor = 1    # fs per step
@@ -118,8 +118,8 @@ class parameters:
         self.additional_sampling = False #If user wants to do additional sampling after the original sampling
         self.customMS_list = None #User can enter a custom milestone list to use
         self.software = 'namd' #Namd, gromacs or lammps (lammps is untested as of now)
-        self.neighbor_kappa = 0 #Used with gromacs in plumed file
-        self.walls_kappa = 0 #Used with gromacs in plumed file
+        self.neighbor_kappa = 1000 #Used with gromacs in plumed file
+        self.walls_kappa = 1000 #Used with gromacs in plumed file
         #self.MS_discarded = [] 
         self.CV_suffixes = [] #Used if we need to add a suffix to a CV, like CV1.x, CV1.y, etc. Use in the same order as the CVs are listed in anchors.txt 
         self.gromacs_timestep = 0.1 #Default timestep for gromacs

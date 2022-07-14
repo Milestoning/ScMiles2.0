@@ -111,10 +111,6 @@ while True:
         continue
     #break
     '''
-    # break if all the snapshots have been used
-    if parameter.method == 0 and current_snapshot >= parameter.nframe:
-        log("All the snapshots have been used...")
-        break
 
     parameter.skip_MS = []    
 
@@ -150,11 +146,18 @@ while True:
         parameter.Finished = set()
         
     # Break if MFPT is converged.
-    else:
+# Alfredo changed this (June 2022)
+    elif np.abs(parameter.MFPT - MFPT_temp) / MFPT_temp < parameter.tolerance:
+#    else:
         print("Previous MFPT: {}".format(MFPT_temp))
         print("Current MFPT: {}".format(parameter.MFPT))
         MFPT_converged = True
         log("MFPT converged")
+        break
+# Alfredo moved this if statement to the end (previously it was before the parameter.skip_MS = [] statement)
+    # break if all the snapshots have been used
+    if parameter.method == 0 and current_snapshot >= parameter.nframe:
+        log("All the snapshots have been used...")
         break
 
 # Double check 
