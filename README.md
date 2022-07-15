@@ -1,12 +1,12 @@
-# ScMiles
+# ScMiles2
 ## Requirement: 
 A milestoning simulation with ScMiles requires the following: 
-1.  Python3 (Anaconda3 recommended), NAMD 2.13, and a computer/cluster with job scheduler (PBS or Slurm).</br></br>
+1.  Python3 (Anaconda3 recommended), NAMD 2.13 or newer, Gromacs 2019 or newer, and a computer/cluster with job scheduler (PBS or Slurm).</br></br>
 2.	anchors.txt: A text file with fixed-width values listing the coordinates in the space of collective variable of the anchors of a Voronoi tessellation. Each line represents the coordinates for one anchor. See example.</br></br>
 3.	A .psf file for the structure.</br></br>
 4.	pdb files for each anchor.</br></br>
 5.	input.txt: A configuration file where the parameters and setups are defined.</br></br>
-6.	sample.namd and free.namd: Two NAMD simulation configuration files: one for sampling at each milestone and the other one for starting new free trajectories from each milestone.</br></br>
+6.	sample.namd and free.namd (for NAMD) or sample.mdp and free.mdp for Gromacs: Two simulation configuration files: one for sampling at each milestone and the other one for starting new free trajectories from each milestone.</br></br>
 7.	submit: A bash script template that contains the path for NAMD and defines how many nodes requested for each simulation.</br></br>
 
 ## How to use:</br>
