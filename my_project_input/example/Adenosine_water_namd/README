@@ -1,0 +1,3 @@
+This folder contains analysis.txt files for long trajectory analysis:
+analysisUsingtrajfile.txt: that uses analysis.colvars.traj (a colvar output file from a long trajectory)
+analysisUsingPathHistory.txt: that uses path_history.dat (derived from a colvar output file from a long trajectory)

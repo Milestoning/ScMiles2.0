@@ -1,0 +1,21 @@
+CV1: TORSION ATOMS=5,7,9,15
+CV2: TORSION ATOMS=7,9,15,17
+
+CUSTOM ...
+        LABEL=cosphi
+        ARG=CV1
+        VAR=x1
+        FUNC=cos(x1)
+        PERIODIC=-pi,pi
+... CUSTOM
+
+CUSTOM ...
+        LABEL=cospsi
+        ARG=CV2
+        VAR=x1
+        FUNC=cos(x1)
+        PERIODIC=-pi,pi
+... CUSTOM
+
+LOWER_WALLS ARG=cosphi AT=-0.97 KAPPA=80000.0
+LOWER_WALLS ARG=cospsi AT=-0.97 KAPPA=80000.0

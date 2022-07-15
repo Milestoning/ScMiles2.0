@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH  -J name
+#SBATCH  -o a.out
+#SBATCH  -e a.err
+#SBATCH  -p lemmings
+#SBATCH  -N 1
+#SBATCH  -n 8
+#SBATCH --exclude=n0012
+
+cd path
+/path/to/Gromacs/bin/gmx 
+/path/to/Gromacs/bin/mdrun

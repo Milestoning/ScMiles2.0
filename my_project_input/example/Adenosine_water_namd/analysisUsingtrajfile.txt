@@ -1,0 +1,9 @@
+source analysis.colvars.traj
+
+reactant 15
+product 6
+
+pbc 360,180
+k_min_sum 5
+
+ignore_milestones MS3_19

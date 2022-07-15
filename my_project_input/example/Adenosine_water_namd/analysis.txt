@@ -1,0 +1,8 @@
+source ScMiles
+
+reactant 5,10
+product 6,12
+
+iteration 20
+pbc 360,180
+

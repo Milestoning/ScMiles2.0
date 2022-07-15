@@ -1,0 +1,79 @@
+### constant volume
+#########################################
+
+structure            /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/step3_charmm2namd.psf
+coordinates          /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/step3_charmm2namd.pdb
+outputname           adenosine
+
+
+#set inputname
+#bincoordinates       /apricot/wanghao/scmile_project/adenosine/ScMile2/my_project_input/02.restart.coor
+#binvelocities       /apricot/wanghao/scmile_project/adenosine/ScMile2/my_project_input/02.restart.vel
+extendedSystem       /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/02.restart.xsc
+
+seed 12345
+
+firsttimestep        0
+wrapWater            on
+wrapAll              on
+wrapNearest          off
+
+# force field.
+paraTypeCharmm       on
+
+parameters              /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/toppar/par_all36m_prot.prm
+parameters              /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/toppar/par_all36_na.prm
+parameters              /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/toppar/par_all36_carb.prm
+parameters              /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/toppar/par_all36_lipid.prm
+parameters              /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/toppar/par_all36_cgenff.prm
+parameters              /apricot/alfredo/ScMiles/ADENOSINE/my_project_input/toppar/toppar_water_ions.str
+
+exclude              scaled1-4
+1-4scaling           1.0
+switching            on
+switchdist           10
+cutoff               12
+pairlistdist         14
+
+
+PME                  on
+PMEGridSpacing       1.0
+
+rigidBonds           all
+rigidTolerance       0.00000001
+rigidIterations      100
+useSettle            on
+
+
+# temperature and pressure
+
+set temp        300
+temperature          $temp
+langevin             on
+langevinTemp         $temp
+langevinDamping      1
+
+# output
+outputTiming         20000
+outputEnergies       20000
+binaryoutput         yes
+
+DCDfreq              20000
+xstfreq              20000
+DCDUnitCell          yes
+
+restartfreq          2
+restartsave          no
+binaryrestart        yes
+
+
+timestep             1.0
+nonbondedFreq        1
+fullElectFrequency   1
+stepspercycle        20
+
+
+colvars              on
+colvarsConfig        colvar_free.conf
+
+run                  1000000

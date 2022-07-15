@@ -1,0 +1,64 @@
+# outputname in NAMD
+outputname Aladipep
+
+# method: 0 -- classic milestoning; 1 -- exaxt milestoning
+method 1
+
+# iteration
+initial_iteration 1
+max_iteration 50
+
+# milestoneSearch: 0 -- traverse; 1 -- seek
+milestoneSearch 1
+
+colvar_names CV1,CV2
+#restart True
+
+# only for seek procedure
+initial_traj 50
+initial_time 50
+
+# free trajectories
+# total number of available snapshots 
+total_trajs 550
+# first snapshot to use
+start_traj 50
+# how many trajectories to launch for each iteration
+traj_per_launch 200
+# the interval between two snapshots 
+interval 1
+
+software gromacs
+neighbor_kappa 10000
+walls_kappa 10000
+# gromacs_timestep is the frequency of configurations saved during sampling
+gromacs_timestep 0.1
+
+# Colvars options
+# customized colvar in custom.colvar
+customColvars on
+# num of colvar besides rmsd
+custom_colvar 2
+colvarsTrajFrequency 2
+colvarsRestartFrequency 1000
+
+# anchor infomations
+anchorsNum 22
+
+# states
+reactant 3,4
+product 9,10
+# periodic boundary
+#pbc 1,12
+
+# MFPT convergence check
+tolerance 0.0001
+
+# HPC setup
+jobsubmission sbatch
+jobcheck squeue
+username alfredo
+
+traj_per_script 10,1,100
+
+ignore_new_ms False

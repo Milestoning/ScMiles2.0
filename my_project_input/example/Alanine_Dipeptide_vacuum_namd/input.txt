@@ -1,0 +1,65 @@
+outputname Aladipep
+
+# method: 0 -- classic milestoning; 1 -- exaxt milestoning
+method 1
+
+# NVT for free trajectories
+NVT on
+
+
+
+#restart True
+initial_iteration 1
+max_iteration 50
+
+# milestoneSearch: 0 -- traverse; 1 -- seek
+milestoneSearch 1
+
+# only for seek procedure
+initial_traj 100
+initial_time 50
+
+# customized colvar in custom.colvar
+customColvars on
+# num of colvar besides rmsd
+custom_colvar 2
+colvarsTrajFrequency 10
+colvarsRestartFrequency 1000
+
+colvar_names phi,psi
+
+# periodic boundary
+pbc_names phi,psi
+L 360,360
+substitution True
+
+#anchor infomations
+anchorsNum 12
+
+#states
+reactant 1,2
+product 11,12
+
+#free trajectories
+total_trajs 900
+start_traj 400
+traj_per_launch 500
+interval 1
+
+# MFPT convergence check
+tolerance 0.00001
+# Error bar calculation with Beta function
+error_sampling 1000
+
+# HPC setup
+jobsubmission sbatch
+jobcheck squeue
+username alfredo
+
+# harmonic force constant
+force_const 1
+
+traj_per_script 10,1,100
+
+#new_ms_trajs 1
+ignore_new_ms False

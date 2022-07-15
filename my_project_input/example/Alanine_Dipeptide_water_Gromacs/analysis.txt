@@ -1,0 +1,5 @@
+source ScMiles
+iteration 29
+reactant 11,12
+product 9,10
+ignore_milestones MS11_21,MS12_21,MS13_21

@@ -1,0 +1,63 @@
+outputname Adenosine
+
+# method: 0 -- classic milestoning; 1 -- exaxt milestoning
+method 1
+
+# NVT for free trajectories
+NVT on
+
+# iteration
+initial_iteration 1
+max_iteration 30
+
+# milestoneSearch: 0 -- traverse; 1 -- seek
+milestoneSearch 1
+
+#restart True
+
+# periodic boundary
+pbc_names chi,pvar
+L 360,180
+colvar_names chi,pvar
+substitution True
+
+# only for seek procedure
+initial_traj 25
+initial_time 50
+
+# customized colvar in custom.colvar
+customColvars on
+# num of colvar besides rmsd
+custom_colvar 2
+colvarsTrajFrequency 1000
+colvarsRestartFrequency 1000
+
+#anchor infomations
+anchorsNum 20
+
+#states
+reactant 15
+product 6
+
+#free trajectories
+total_trajs 400
+start_traj 100
+traj_per_launch 200
+interval 1
+
+# MFPT convergence check
+tolerance 0.001
+# Error bar calculation with Beta function
+error_sampling 1000
+
+# HPC setup
+jobsubmission sbatch
+jobcheck squeue
+username alfredo
+
+traj_per_script 5,1,100
+
+# harmonic force constant
+force_const 1
+
+ignore_new_ms False

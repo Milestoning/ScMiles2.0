@@ -1,0 +1,47 @@
+dihedral {
+    name chi
+    group1 {atomnumbers 1}
+    group2 {atomnumbers 4}
+    group3 {atomnumbers 14}
+    group4 {atomnumbers 19}
+}
+
+dihedral {
+   name v1
+   group1 { atomNumbers 4 }
+   group2 { atomNumbers 7 }
+   group3 { atomNumbers 25 }
+   group4 { atomNumbers 2 }
+}
+
+dihedral {
+   name v2
+   group1 { atomNumbers 7 }
+   group2 { atomNumbers 25 }
+   group3 { atomNumbers 2 }
+   group4 { atomNumbers 1 }
+}
+
+dihedral {
+   name v3
+   group1 { atomNumbers 25 }
+   group2 { atomNumbers 2 }
+   group3 { atomNumbers 1 }
+   group4 { atomNumbers 4 }
+}
+
+dihedral {
+   name v4
+   group1 { atomNumbers 2 }
+   group2 { atomNumbers 1 }
+   group3 { atomNumbers 4 }
+   group4 { atomNumbers 7 }
+}
+
+dihedral {
+   name v5
+   group1 { atomNumbers 1 }
+   group2 { atomNumbers 4 }
+   group3 { atomNumbers 7 }
+   group4 { atomNumbers 25 }
+}
