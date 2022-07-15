@@ -1,17 +1,18 @@
+
 ########################################
 ########################################
 #Ala-dipeptide running in vaccum
-#1 us, with step 0.5 fs 
+#1 us, with step 1.0 fs 
 #########################################
 
-structure            /home/weiw/test/1127/my_project_input/Aladipep.psf
-coordinates          /home/weiw/test/1127/my_project_input/Aladipep.pdb
+structure            /apricot/alfredo/ScMiles_Sept2021/my_project_input/Aladipep.psf
+coordinates          /apricot/alfredo/ScMiles_Sept2021/my_project_input/Aladipep.pdb
 outputname           Aladipep
 
 #set inputname
-#bincoordinates       /moilgpu/arman/RockClimbing-cyclohexane/02.restart.coor
-#binvelocities        /moilgpu/arman/RockClimbing-cyclohexane/02.restart.vel
-#extendedSystem       /moilgpu/arman/RockClimbing-cyclohexane/02.restart.xsc
+#bincoordinates       /moilgpu/02.restart.coor
+#binvelocities        /moilgpu/02.restart.vel
+#extendedSystem       /moilgpu/02.restart.xsc
 
 seed 12345
 
@@ -23,8 +24,8 @@ wrapNearest          off
 # force field.
 paraTypeCharmm       on
 
-parameters   /home/weiw/test/1127/my_project_input/par_all22_prot_nocmap.prm
-parameters   /home/weiw/test/1127/my_project_input/toppar_water_ions.rtf 
+parameters   /apricot/alfredo/ScMiles_Sept2021/my_project_input/par_all22_prot_nocmap.prm
+parameters   /apricot/alfredo/ScMiles_Sept2021/my_project_input/toppar_water_ions.rtf 
 
 exclude              scaled1-4
 1-4scaling           1.0
@@ -85,20 +86,19 @@ DCDfreq              20000
 xstfreq              20000
 DCDUnitCell          yes
 
-restartfreq          1000
+restartfreq          1
 restartsave          yes
 binaryrestart        yes
 
 
-timestep             0.5
+timestep             1.0
 nonbondedFreq        1
 fullElectFrequency   2
 stepspercycle        20
 
 
 colvars              on
-colvarsConfig        colvar.conf
+colvarsConfig        colvar_free.conf
 
-minimize             100
-run                  1000000
+run	             1000000     
 
