@@ -270,7 +270,7 @@ class plumed:
             full_args.append(i)
         full_args = ",".join(full_args)
         full_function.append("PRINT STRIDE={} ARG={} FILE={}.colvars.traj"
-                             .format(1, full_args, self.parameter.outputname))
+                             .format(2, full_args, self.parameter.outputname))
         fconf = open(self.config_path, 'a')
         for i in full_function:
             i=i.replace('--','+')
