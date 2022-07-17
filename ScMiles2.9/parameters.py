@@ -66,7 +66,7 @@ class parameters:
         self.MFPT = MFPT       #Just used to store the MFPT value
         self.namd_conf = False       # additional modification required for NAMD configuration
         self.colvarsNum = colvarsNum  # number of colvars, used for read command
-        self.forceConst = 1  # force constant for harmonic constrain
+        self.forceConst = [1]  # force constant for harmonic constrain
         self.trajWidths = trajWidths  # width for each traj output, default = 13
         self.customColvars = 0       # customized colvar: 0 - no; 1- yes
         self.colvarsTrajFrequency = colvarsTrajFrequency   # how often to output colvars
